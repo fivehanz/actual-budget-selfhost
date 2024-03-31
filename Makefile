@@ -5,13 +5,13 @@ nginx-init: prod-nginx-link
 
 ### PRODUCTION COMMANDS
 prod-start:
-	docker compose --env-file .env --file ./docker-compose.yml up -d
+	docker compose --file ./docker-compose.yml up -d
 prod-rebuild:
-	docker compose --env-file .env --file ./docker-compose.yml up -d --build
+	docker compose --file ./docker-compose.yml up -d --build
 prod-restart:
-	docker compose --env-file .env --file ./docker-compose.yml up -d --force-recreate	
+	docker compose --file ./docker-compose.yml up -d --force-recreate	
 prod-stop:
-	docker compose --env-file .env --file ./docker-compose.yml down
+	docker compose --file ./docker-compose.yml down
 
 prod-nginx-link:
 	ln -s ${shell pwd}/vhost.conf /etc/nginx/sites-enabled/actual-budget.conf
